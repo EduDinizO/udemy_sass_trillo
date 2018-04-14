@@ -26,6 +26,11 @@
 
 //flex-item
 .side-bar {
+    // flex container que muda a direção do flex
+    display: flex;
+    flex-direction: column;
+    // os items ficam nos extremos
+    justify-content: space-between;
     // pode aumentar? pode encolher? largura
     flex: 0 0 18%;
     background-color: var(--color-grey-dark-1);
@@ -36,4 +41,5 @@
     // pode aumentar?
     flex: 1;
     background-color: white;
+    height: 80rem;
 }
