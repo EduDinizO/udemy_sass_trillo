@@ -1,0 +1,110 @@
+//////////////////////////////////////////////////////////
+// LOGO
+.logo {
+    height: 3.25rem;
+    margin-left: 2rem;
+}
+
+//////////////////////////////////////////////////////////
+// SEARCH BOX
+.search {
+    // flex-container para alinhar o btn no input
+    display: flex;
+    // alinha verticalmente o btn no input
+    align-items: center;
+    // centraliza horizontalmente
+    justify-content: center;
+    // pode aumentar? pode diminuir? largura
+    flex: 0 0 40%;
+    &__input {
+        // inputs não pegam o font-family/font-size automaticamente
+        font-family: inherit;
+        font-size: inherit;
+        background-color: var(--color-grey-light-2);
+        border: none;
+        padding: .7rem 2rem;
+        // para o btn ficar por cima do input
+        margin-right: -3.25rem;
+        // número alto para que a borda fique redonda
+        border-radius: 10rem;
+        // não 100% pq ao clicar vai aumentar
+        width: 90%;
+        transition: all .2s;
+        &:focus {
+            outline: none;
+            width: 100%;
+            background-color: var(--color-grey-light-3);
+        }
+        &::-webkit-input-placeholder {
+            font-weight: 100;
+            color: var(--color-grey-light-4);
+        }
+    }
+    &__button {
+        border: none;
+        background-color: transparent;
+        &:focus {
+            outline: none;
+        }
+        &:active {
+            transform: translateY(.2rem);
+        }
+    }
+    &__icon {
+        height: 2rem;
+        width: 2rem;
+        // mudar a cor do svg
+        fill: var(--color-grey-dark-3);
+    }
+}
+
+//////////////////////////////////////////////////////////
+// USER NAVIGATION
+.user-nav {
+    // flex-container
+    display: flex;
+    // alinha verticalmente os items
+    align-items: center;
+    // aumenta a altura para ocupar todo o espaço disponível
+    align-self: stretch;
+    // seleciona os filhos diretos (user-nav__icon-box e user-nav__user)
+    &>* {
+        padding: 0 2rem;
+        cursor: pointer;
+        height: 100%;
+        display: flex;
+        // alinha verticalmente no centro
+        align-items: center;
+    }
+    &>*:hover {
+        background-color: var(--color-grey-light-2);
+    }
+    &__icon-box {
+        position: relative;
+    }
+    &__icon {
+        height: 2.25rem;
+        width: 2.25rem;
+        fill: var(--color-grey-dark-2);
+    }
+    &__notification {
+        font-size: .8rem;
+        height: 1.75rem;
+        width: 1.75rem;
+        border-radius: 50%;
+        background-color: var(--color-primary);
+        color: white;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.1rem;
+        // centraliza horizontal e verticalmente
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__user-photo {
+        height: 3.75rem;
+        border-radius: 50%;
+        margin-right: 1rem;
+    }
+}

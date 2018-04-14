@@ -1,0 +1,39 @@
+.container {
+    max-width: 120rem;
+    margin: 8rem auto;
+    background-color: var(--color-grey-light-1);
+    box-shadow: var(--shadow-dark);
+    min-height: 50rem;
+}
+
+//flex-container
+.header {
+    display: flex;
+    // divide o espaço horizontal vazio igualmente entre os elementos
+    justify-content: space-between;
+    // alinha os elementos verticalmente no centro
+    align-items: center;
+    height: 7rem;
+    background-color: white;
+    border-bottom: var(--color-grey-light-2);
+    font-size: 1.4rem;
+}
+
+//flex-container
+.content {
+    display: flex;
+}
+
+//flex-item
+.side-bar {
+    // pode aumentar? pode encolher? largura
+    flex: 0 0 18%;
+    background-color: var(--color-grey-dark-1);
+}
+
+//flex-item
+.hotel-view {
+    // pode aumentar?
+    flex: 1;
+    background-color: white;
+}
