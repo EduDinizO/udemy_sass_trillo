@@ -8,27 +8,28 @@
 //////////////////////////////////////////////////////////
 // SEARCH BOX
 .search {
-    // flex-container para alinhar o btn no input
-    display: flex;
-    // alinha verticalmente o btn no input
-    align-items: center;
-    // centraliza horizontalmente
-    justify-content: center;
-    // pode aumentar? pode diminuir? largura
-    flex: 0 0 40%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; // flex-container para alinhar o btn no input
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; // alinha verticalmente o btn no input
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; // centraliza horizontalmente
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 40%;
+    flex: 0 0 40%; // pode aumentar horizontalmente? pode diminuir horizontalmente? largura
     &__input {
-        // inputs não pegam o font-family/font-size automaticamente
-        font-family: inherit;
-        font-size: inherit;
+        font-family: inherit; // inputs não pegam o font-family automaticamente
+        font-size: inherit; // inputs não pegam o font-size automaticamente
         background-color: var(--color-grey-light-2);
         border: none;
         padding: .7rem 2rem;
-        // para o btn ficar por cima do input
-        margin-right: -3.25rem;
-        // número alto para que a borda fique redonda
-        border-radius: 10rem;
-        // não 100% pq ao clicar vai aumentar
-        width: 90%;
+        margin-right: -3.25rem; // para o btn ficar por cima do input
+        border-radius: 10rem; // número alto para que a borda fique redonda
+        width: 90%; // não 100% pq ao clicar vai aumentar
+        -webkit-transition: all .2s;
         transition: all .2s;
         &:focus {
             outline: none;
@@ -47,14 +48,14 @@
             outline: none;
         }
         &:active {
+            -webkit-transform: translateY(.2rem);
             transform: translateY(.2rem);
         }
     }
     &__icon {
         height: 2rem;
         width: 2rem;
-        // mudar a cor do svg
-        fill: var(--color-grey-dark-3);
+        fill: var(--color-grey-dark-3); // mudar a cor do svg
         &:hover {
             cursor: pointer;
         }
@@ -64,21 +65,25 @@
 //////////////////////////////////////////////////////////
 // USER NAVIGATION
 .user-nav {
-    // flex-container
-    display: flex;
-    // alinha verticalmente os items
-    align-items: center;
-    // aumenta a altura para ocupar todo o espaço disponível
-    align-self: stretch;
-    // seleciona os filhos diretos (user-nav__icon-box e user-nav__user)
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; // flex-container
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; // alinha verticalmente os items
+    -ms-flex-item-align: stretch;
+    align-self: stretch; // aumenta a altura para ocupar todo o espaço disponível
     &>* {
+        // seleciona os filhos diretos (user-nav__icon-box e user-nav__user)        
         padding: 0 2rem;
         cursor: pointer;
         height: 100%;
-        // flex-container
-        display: flex;
-        // alinha verticalmente no centro
-        align-items: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; // flex-container
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center; // alinha verticalmente no centro
     }
     &>*:hover {
         background-color: var(--color-grey-light-2);
@@ -101,10 +106,14 @@
         position: absolute;
         top: 1.5rem;
         right: 1.1rem;
-        // flex-container
-        display: flex;
-        // centraliza horizontal e verticalmente
-        justify-content: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; // flex-container
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center; // centraliza horizontal e verticalmente
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
     }
     &__user-photo {
@@ -133,15 +142,18 @@
             width: .3rem;
             height: 100%;
             background-color: var(--color-primary);
-            transform: scaleY(0);
-            // controla a posição que o elemento começa a aparecer
-            // transform-origin: bottom;
+            -webkit-transform: scaleY(0);
+            transform: scaleY(0); // transform-origin: bottom; //controla a posição que o elemento começa a aparecer
             // o width tem um delay de .2 que é o quanto demora o transform
             // cubic-bezier começa lento, fica rápido, termina lento
+            -webkit-transition: width .4s cubic-bezier(1, 0, 0, 1) .2s, background-color .1s, -webkit-transform .2s;
+            transition: width .4s cubic-bezier(1, 0, 0, 1) .2s, background-color .1s, -webkit-transform .2s;
             transition: transform .2s, width .4s cubic-bezier(1, 0, 0, 1) .2s, background-color .1s;
+            transition: transform .2s, width .4s cubic-bezier(1, 0, 0, 1) .2s, background-color .1s, -webkit-transform .2s;
         }
         &:hover::before,
         &--active::before {
+            -webkit-transform: scaleY(1);
             transform: scaleY(1);
             width: 100%;
         }
@@ -151,22 +163,24 @@
     }
     &__link:link,
     &__link:visited {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
         color: var(--color-grey-light-1);
         text-decoration: none;
         text-transform: uppercase;
         padding: 1.5rem 3rem;
-        // z-index só funciona se tiver um position declarado
-        position: relative;
+        position: relative; // z-index só funciona se tiver um position declarado
         z-index: 2;
     }
     &__icon {
         width: 1.75rem;
         height: 1.75rem;
         margin-right: 2rem;
-        // pega a cor do elemente pai (side-nav__link = acima)
-        fill: currentColor;
+        fill: currentColor; // pega a cor do elemente pai (side-nav__link = acima)
     }
 }
 
@@ -177,4 +191,155 @@
     color: var(--color-grey-light-4);
     text-align: center;
     padding: 2.5rem;
+}
+
+//////////////////////////////////////////////////////////
+// GALERY
+.gallery {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    &__photo {
+        width: 100%; // sempre usar % na largura e altura para que as imagens fiquem responsivas
+        display: block; //para não ter separação entre as imagens
+    }
+}
+
+//////////////////////////////////////////////////////////
+// HOTEL OVERVIEW
+.overview {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; // alinha verticalmente no centro
+    border-bottom: 1px solid var(--color-grey-light-2);
+    &__heading {
+        font-size: 2.25rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: .1rem;
+        padding: 1.5rem 3rem;
+    }
+    &__stars {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; // para alinhar verticalmente as estrelas pois svg são "texto"
+        // poderia fazer font-size e line-height = 0;
+        margin-right: auto; // faz a largura do elemente ser de acordo com o conteúdo, e joga ele para a esquerda
+    }
+    &__icon-star,
+    &__icon-location {
+        width: 1.75rem;
+        height: 1.75rem;
+        fill: var(--color-primary);
+    }
+    &__location {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        font-size: 1.2rem;
+    }
+    &__icon-location {
+        margin-right: .5rem;
+    }
+    &__rating {
+        background-color: var(--color-primary);
+        margin-left: 3rem;
+        color: white;
+        padding: 0 2.25rem;
+        -ms-flex-item-align: stretch;
+        align-self: stretch; // aumenta o height para ocupar todo o espaço
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; //para alinhas os elementos
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column; // número em cima dos votos, muda eixos
+        &-average {
+            font-size: 2.25rem;
+            font-weight: 300;
+            margin-bottom: -.3rem;
+        }
+        &-count {
+            font-size: .8rem;
+            text-transform: uppercase;
+        }
+    }
+}
+
+//////////////////////////////////////////////////////////
+// BTN INLINE
+.btn-inline {
+    border: none;
+    background-color: transparent;
+    color: var(--color-primary);
+    font-size: inherit; // pega a font-size do pai, o 2º botão possui uma letra maior que o 1º
+    border-bottom: 1px solid currentColor; // pega a cor do elemento pai
+    padding-bottom: .2rem;
+    display: inline-block;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    &:hover {
+        cursor: pointer;
+        color: var(--color-grey-dark-1);
+    }
+    &:focus {
+        outline: none;
+        -webkit-animation: pulsate 1s infinite;
+        animation: pulsate 1s infinite;
+    }
+}
+
+@-webkit-keyframes pulsate {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    50% {
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+        -webkit-box-shadow: 0 1rem 4rem rgba(0, 0, 0, .25);
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, .25);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+}
+
+@keyframes pulsate {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    50% {
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+        -webkit-box-shadow: 0 1rem 4rem rgba(0, 0, 0, .25);
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, .25);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
 }
