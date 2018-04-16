@@ -2,44 +2,84 @@
     max-width: 120rem;
     margin: 8rem auto;
     background-color: var(--color-grey-light-1);
+    -webkit-box-shadow: var(--shadow-dark);
     box-shadow: var(--shadow-dark);
     min-height: 50rem;
 }
 
 //flex-container
 .header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    // divide o espaço horizontal vazio igualmente entre os elementos
-    justify-content: space-between;
-    // alinha os elementos verticalmente no centro
-    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; // divide o espaço horizontal vazio igualmente entre os elementos
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; // alinha os elementos verticalmente no centro
     height: 7rem;
     background-color: white;
-    border-bottom: 1px solid var(--color-grey-light-2);
+    border-bottom: var(--line);
     font-size: 1.4rem;
 }
 
 //flex-container
 .content {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
 //flex-item
 .side-bar {
-    // flex container que muda a direção do flex
-    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; // flex container que muda a direção do flex
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
-    // os items ficam nos extremos
-    justify-content: space-between;
-    // pode aumentar? pode encolher? largura
-    flex: 0 0 18%;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; // os items ficam nos extremos
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 18%;
+    flex: 0 0 18%; // pode aumentar? pode encolher? largura
     background-color: var(--color-grey-dark-1);
 }
 
 //flex-item
 .hotel-view {
-    // pode aumentar?
-    flex: 1;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1; // pode aumentar?
     background-color: white;
-    height: 80rem;
+}
+
+.detail {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; // flex container
+    padding: 4.5rem;
+    background-color: var(--color-grey-light-1);
+    border-bottom: var(--line);
+}
+
+.description {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 60%;
+    flex: 0 0 60%; // pode aumentar? pode encolher? largura
+    margin-right: 4.5rem;
+    background-color: white;
+    -webkit-box-shadow: var(--shadow-light);
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+    font-size: 1.4rem;
+}
+
+.user-review {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1; //ocupa o que sobrar
 }
