@@ -20,6 +20,15 @@
     -webkit-box-flex: 0;
     -ms-flex: 0 0 40%;
     flex: 0 0 40%; // pode aumentar horizontalmente? pode diminuir horizontalmente? largura
+    @media only screen and (max-width: $bp-smallest) {
+        -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+        order: 1;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        background-color: var(--color-grey-light-3);
+    }
     &__input {
         font-family: inherit; // inputs não pegam o font-family automaticamente
         font-size: inherit; // inputs não pegam o font-size automaticamente
@@ -35,6 +44,9 @@
             outline: none;
             width: 100%;
             background-color: var(--color-grey-light-3);
+            @media only screen and (max-width: $bp-smallest) {
+                width: 95%;
+            }
         }
         &::-webkit-input-placeholder {
             font-weight: 100;
@@ -129,6 +141,12 @@
     font-size: 1.4rem;
     list-style: none;
     margin-top: 3.5rem;
+    @media only screen and (max-width: $bp-medium) {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin: 0;
+    }
     &__item {
         position: relative;
         &:not(:last-child) {
@@ -160,6 +178,14 @@
         &:active::before {
             background-color: var(--color-primary-light);
         }
+        @media only screen and (max-width: $bp-medium) {
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            &:not(:last-child) {
+                margin-bottom: 0;
+            }
+        }
     }
     &__link:link,
     &__link:visited {
@@ -175,12 +201,31 @@
         padding: 1.5rem 3rem;
         position: relative; // z-index só funciona se tiver um position declarado
         z-index: 2;
+        @media only screen and (max-width: $bp-medium) {
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        @media only screen and (max-width: $bp-small) {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            padding: 1.5rem .5rem;
+        }
     }
     &__icon {
         width: 1.75rem;
         height: 1.75rem;
         margin-right: 2rem;
         fill: currentColor; // pega a cor do elemente pai (side-nav__link = acima)
+        @media only screen and (max-width: $bp-small) {
+            margin-right: 0;
+            margin-bottom: .7rem;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     }
 }
 
@@ -191,6 +236,9 @@
     color: var(--color-grey-light-4);
     text-align: center;
     padding: 2.5rem;
+    @media only screen and (max-width: $bp-medium) {
+        display: none;
+    }
 }
 
 //////////////////////////////////////////////////////////
@@ -221,6 +269,10 @@
         text-transform: uppercase;
         letter-spacing: .1rem;
         padding: 1.5rem 3rem;
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+            padding: 1.25rem 2rem;
+        }
     }
     &__stars {
         display: -webkit-box;
@@ -267,14 +319,23 @@
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
         flex-direction: column; // número em cima dos votos, muda eixos
+        @media only screen and (max-width: $bp-small) {
+            padding: 0 1.5rem;
+        }
         &-average {
             font-size: 2.25rem;
             font-weight: 300;
             margin-bottom: -.3rem;
+            @media only screen and (max-width: $bp-small) {
+                font-size: 1.8rem;
+            }
         }
         &-count {
             font-size: .8rem;
             text-transform: uppercase;
+            @media only screen and (max-width: $bp-small) {
+                font-size: .5rem;
+            }
         }
     }
 }
@@ -407,6 +468,11 @@
     &__count {
         margin-right: auto;
     }
+    &__friends {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
     &__photo {
         -webkit-box-sizing: content-box;
         box-sizing: content-box; // como possui uma borda = acrescentar no tamanho da div
@@ -415,7 +481,7 @@
         border-radius: 50%;
         border: 3px solid white;
         &:not(:last-child) {
-            margin-right: -1.5rem;
+            margin-right: -2rem;
         }
     }
 }
@@ -430,6 +496,10 @@
     margin-bottom: 3.5rem;
     position: relative;
     overflow: hidden;
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
     &__text {
         margin-bottom: 2rem;
         position: relative;
@@ -485,6 +555,9 @@
 .cta {
     padding: 3.5rem 0;
     text-align: center;
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2.5rem 0;
+    }
     &__book-now {
         font-size: 1.5rem;
         font-weight: 300;
